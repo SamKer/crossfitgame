@@ -46,6 +46,7 @@
 <script>
 import HelloWorld from './components/HelloWorld';
 
+
 export default {
   name: 'App',
 
@@ -56,5 +57,25 @@ export default {
   data: () => ({
     //
   }),
+  created() {
+    this.$socket.emit('whoishere', {ok:'ok'});
+  },
+  sockets: {
+        connect: function () {
+            console.log('socket connected');
+        },
+        userConnected: function (data) {
+            console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)', data)
+        },
+        serverUp: function (data) {
+          console.log('serveup', data);
+        }
+    },
+    methods: {
+        clickButton: function (data) {
+            // $socket is socket.io-client instance
+            this.$socket.emit('emit_method', data)
+        }
+    }
 };
 </script>
