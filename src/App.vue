@@ -27,38 +27,36 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <User/>
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <Home v-if="this.session"/>
+      <Auth v-else/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
+import Home from './components/Home/Home';
+import Auth from './components/Auth/Auth';
+import User from "./components/User/User";
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    User,
+    Home,
+    Auth
   },
 
-  data: () => ({
-    //
+  data: (vm) => ({
+    session: vm.getSession()
   }),
-  created() {
-    this.$socket.emit('whoishere', {ok:'ok'});
+
+  mounted() {
+    this.$root.$on('app:session', this.setSession);
   },
   sockets: {
         connect: function () {
@@ -68,14 +66,20 @@ export default {
             console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)', data)
         },
         serverUp: function (data) {
-          console.log('serveup', data);
+            console.log('serveup', data);
         }
     },
-    methods: {
-        clickButton: function (data) {
-            // $socket is socket.io-client instance
-            this.$socket.emit('emit_method', data)
-        }
+  methods: {
+
+    getSession() {
+
+      return this.Storage.get('session');
+    },
+
+    setSession(session) {
+        this.session = session;
+        this.Storage.set('session', session);
     }
+  }
 };
 </script>

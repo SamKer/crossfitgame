@@ -19,13 +19,17 @@ const server = app.listen(process.env.SERVER_PORT, function () {
 /* SOCKET TEST*/
 const io = require('socket.io').listen(server);
 io.sockets.on('connection', function (socket) {
-  console.log('test socket ok');
   socket.setMaxListeners(0);
-  //socket.emit('chatmsg', {msg:'Bienvenue sur le tchat', author: 'Serveur'});
-  socket.on('whoishere', function (whocall) {
+  socket.emit('serverUp',{server:'ok'});
+
+  /*socket.on('whoishere', function (whocall) {
     console.log(whocall);
     socket.broadcast.emit('usersConnected',{list:{}, author: whocall});
     //socket.emit('chatmsg',{msg:chatSendByUser.msg, author: 'Vous'});
-  });
-  socket.emit('serverUp',{server:'ok'});
+  });*/
+
+
+  //whoami
+  const whoami = require('./server/whoami');
+  socket.on('whoami', whoami);
 });
