@@ -1,6 +1,6 @@
 <template>
     <div class="Home">
-        home page
+        {{$t('welcome')}}
     </div>
 </template>
 

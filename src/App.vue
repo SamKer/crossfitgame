@@ -10,7 +10,7 @@
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="https://i.pinimg.com/originals/6e/94/69/6e94695575a2c897135f7cc0b86800eb.png"
           transition="scale-transition"
           width="40"
         />
@@ -34,6 +34,23 @@
       <Home v-if="this.session"/>
       <Auth v-else/>
     </v-content>
+
+    <v-footer
+            color="primary lighten-1"
+            padless
+    >
+      <v-row
+              justify="center"
+              no-gutters
+      >
+        <v-col
+                class="primary lighten-2 py-4 text-center white--text"
+                cols="12"
+        >
+          {{ new Date().getFullYear() }} — <strong>CrossFit Game</strong>
+        </v-col>
+      </v-row>
+    </v-footer>
   </v-app>
 </template>
 
@@ -72,7 +89,9 @@ export default {
   methods: {
 
     getSession() {
-
+      if(this.Storage.get('session') === true) {
+        this.$i18n.locale = this.Storage.get('user').locale;
+      }
       return this.Storage.get('session');
     },
 

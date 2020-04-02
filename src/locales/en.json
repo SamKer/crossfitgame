@@ -1,5 +1,6 @@
 {
     "welcome": "Welcome",
-    "identify": "You need to login",
-    "signingoogle": "sign in with Google"
+    "identify": "You need to sign in",
+    "withgoogle": "with Google",
+    "withfacebook": "with Facebook"
 }

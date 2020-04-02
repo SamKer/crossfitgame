@@ -5,14 +5,14 @@
       >
             <v-avatar>
                 <v-img v-if="user.auth === true"
-                       :src="user.thumbnail"
+                       :src="user.picture"
                        max-height="20"
                        max-width="20"
                 />
                 <v-icon v-else>mdi-account</v-icon>
             </v-avatar>
         <span class="mr-2 text-capitalize font-italic avatar">{{user.name}}</span>
-            <flag :iso="user.locale" />
+        <flag :iso="user.locale" />
       </v-btn>
     </div>
 </template>
@@ -46,6 +46,7 @@
                 this.$socket.emit('whoami', this.user);
                 this.Storage.set('user', this.user);
                 this.$root.$emit('app:session', true);
+                this.$i18n.locale = this.user.locale;
             }
         }
     };

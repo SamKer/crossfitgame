@@ -6,8 +6,8 @@
           >
             <v-img
               class="white--text align-end"
-              height="200px"
-              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              max-height="200px"
+              src="https://svgsilh.com/svg/1975689.svg"
             >
               <v-card-title>{{ $t('welcome')}}</v-card-title>
             </v-img>
@@ -22,14 +22,15 @@
                 @click="auth('google')"
               >
                 <v-icon>mdi-google-plus</v-icon>
-                {{$t('signingoogle')}}
+                {{$t('withgoogle')}}
               </v-btn>
 
               <v-btn
-                color="orange"
-                text
+                      color="primary"
+                      @click="auth('facebook')"
               >
-                Facebook
+                <v-icon>mdi-facebook</v-icon>
+                {{$t('withfacebook')}}
               </v-btn>
             </v-card-actions>
           </v-card>
