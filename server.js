@@ -3,18 +3,11 @@ const app = express();
 require('dotenv').config();
 
 app.use(express.json());
-
-app.get('/service', async function (req, res) {
-
-  res.header({"Content-Type":"application/json"});
-  res.status(200);
-  res.send({ok:"ok"});
-});
-
+//le build est ici
 app.use('/', express.static('dist'));
 
 const server = app.listen(process.env.SERVER_PORT, function () {
-  console.log('Example app listening on port:', process.env.SERVER_PORT);
+  console.log('CrossfitGame Up on port:', process.env.SERVER_PORT);
 });
 /* SOCKET TEST*/
 const io = require('socket.io').listen(server);
@@ -30,6 +23,6 @@ io.sockets.on('connection', function (socket) {
 
 
   //whoami
-  const whoami = require('./server/whoami');
+  const whoami = require('./server/ws/whoami');
   socket.on('whoami', whoami);
 });

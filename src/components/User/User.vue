@@ -34,7 +34,6 @@
                 return this.Storage.get('user');
             },
             setUser(profile) {
-                console.log(profile);
                 this.user = {
                     ...this.user,
                     auth: true,
