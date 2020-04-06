@@ -77,12 +77,11 @@ export default {
   //  Auth
   },
 
-  data: (vm) => ({
-    session: vm.getSession()
+  data: () => ({
+
   }),
 
   mounted() {
-    this.$root.$on('app:session', this.setSession);
     this.$root.$on('app:getsession', this.getSession);
   },
   sockets: {
@@ -98,17 +97,7 @@ export default {
     },
   methods: {
 
-    getSession() {
-      if(this.Storage.get('session') === true) {
-        this.$i18n.locale = this.Storage.get('user').locale;
-      }
-      return this.Storage.get('session');
-    },
 
-    setSession(session) {
-        this.session = session;
-        this.Storage.set('session', session);
-    }
   }
 };
 </script>

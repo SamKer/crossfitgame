@@ -39,7 +39,6 @@
                     auth: true,
                     name: profile.name,
                     picture: profile.picture,
-                    thumbnail: profile.thumbnail,
                     locale: profile.locale
                 };
                 this.$socket.emit('whoami', this.user);

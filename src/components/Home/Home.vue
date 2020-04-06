@@ -10,15 +10,22 @@
     export default {
         components: {Auth},
         data: (vm) => ({
-            session: vm.$root.$emit('app:getsession')
+            session: vm.getSession()
         }),
         mounted() {
-            this.$root.$on('app:session', this.setSession)
+            this.$root.$on('app:session', this.setSession);
         },
         methods: {
+            getSession() {
+                if(this.Storage.get('session') === true) {
+                    this.$i18n.locale = this.Storage.get('user').locale;
+                }
+                return this.Storage.get('session');
+            },
+
             setSession(session) {
-                console.log('test', session);
                 this.session = session;
+                this.Storage.set('session', session);
             }
         }
     };

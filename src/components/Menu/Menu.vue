@@ -16,7 +16,7 @@
                         v-for="(item, i) in items"
                         :key="i"
                 >
-                    <v-list-item-title><router-link :to="item.route">{{ item.title }}</router-link></v-list-item-title>
+                    <v-list-item-title><router-link :to="item.route">{{ $t(item.title) }}</router-link></v-list-item-title>
                 </v-list-item>
             </v-list>
         </v-menu>
@@ -27,19 +27,27 @@
     export default {
         props: {
         },
-        data: (vm)=>({
+        data: ()=>({
             items: [
                 {
                     route: '/',
-                    title: vm.$t('home')
+                    title: 'home'
+                },
+                {
+                    route: '/friends',
+                    title: 'friends'
+                },
+                {
+                    route: '/profil',
+                    title: 'profil'
                 },
                 {
                     route: '/contact',
-                    title: vm.$t('contact')
+                    title: 'contact'
                 },
                 {
                     route: '/rgpc',
-                    title: vm.$t('policyrules')
+                    title: 'policyrules'
                 },
             ]
         })

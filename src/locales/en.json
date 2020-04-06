@@ -8,5 +8,8 @@
     "choosefakeuser": "Select a fake User (dev)",
     "close": "Close",
     "save": "Save",
-    "policyrules": "Policies Rules"
+    "policyrules": "Policies Rules",
+    "friends": "Friends",
+    "profil": "profile",
+    "contact": "contact"
 }
