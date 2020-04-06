@@ -8,6 +8,7 @@ HelloJs.init({
 }, {
   redirect_uri: 'authcallback/'
 });
+
 export {
     VueHello,
     HelloJs

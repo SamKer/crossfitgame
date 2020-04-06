@@ -2,5 +2,9 @@
     "welcome": "Bienvenu",
     "identify": "Vous devez vous connecter",
     "withgoogle": "avec Google",
-    "withfacebook": "avec Facebook"
+    "withfacebook": "avec Facebook",
+    "fakeuser": "faux compte (dev)",
+    "choosefakeuser": "Choisissez un faux compte (dev)",
+    "close": "Fermer",
+    "save": "Enregistrer"
 }

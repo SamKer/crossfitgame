@@ -2,5 +2,9 @@
     "welcome": "Welcome",
     "identify": "You need to sign in",
     "withgoogle": "with Google",
-    "withfacebook": "with Facebook"
+    "withfacebook": "with Facebook",
+    "fakeuser": "fake account (dev)",
+    "choosefakeuser": "Select a fake User (dev)",
+    "close": "Close",
+    "save": "Save"
 }
