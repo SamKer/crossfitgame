@@ -125,6 +125,7 @@
                     });
                   });
                   break;
+
                   case 'fake':
                     p = this.fakeUsers[this.fakechoice];
                     p = {
@@ -133,6 +134,7 @@
                     };
                     this.$root.$emit('user:setuser', p);
                     break;
+
                     default:
 
                       break;

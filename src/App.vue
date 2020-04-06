@@ -28,15 +28,17 @@
       <v-spacer></v-spacer>
 
       <User/>
+      <Menu/>
     </v-app-bar>
 
     <v-content>
-      <Home v-if="this.session"/>
-      <Auth v-else/>
+      <router-view></router-view>
+
+
     </v-content>
 
     <v-footer
-            color="primary lighten-1"
+            color="primary dark-1"
             padless
     >
       <v-row
@@ -44,28 +46,35 @@
               no-gutters
       >
         <v-col
-                class="primary lighten-2 py-4 text-center white--text"
+                class="primary dark-2 py-4 text-center white--text"
                 cols="12"
         >
           {{ new Date().getFullYear() }} — <strong>CrossFit Game</strong>
+
+          <router-link to="/" class="white--text">{{$t('home')}}</router-link>
+          <router-link to="/rgpc" class="white--text">{{$t('policyrules')}}</router-link>
+          <router-link to="/contact" class="white--text">{{$t('contact')}}</router-link>
+
         </v-col>
       </v-row>
     </v-footer>
+
   </v-app>
 </template>
 
 <script>
-import Home from './components/Home/Home';
-import Auth from './components/Auth/Auth';
+//import Home from './components/Home/Home';
+//import Auth from './components/Auth/Auth';
 import User from "./components/User/User";
+import Menu from "./components/Menu/Menu";
 
 export default {
   name: 'App',
 
   components: {
+    Menu,
     User,
-    Home,
-    Auth
+  //  Auth
   },
 
   data: (vm) => ({
@@ -74,6 +83,7 @@ export default {
 
   mounted() {
     this.$root.$on('app:session', this.setSession);
+    this.$root.$on('app:getsession', this.getSession);
   },
   sockets: {
         connect: function () {

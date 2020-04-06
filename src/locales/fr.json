@@ -1,4 +1,5 @@
 {
+    "home": "Accueil",
     "welcome": "Bienvenu",
     "identify": "Vous devez vous connecter",
     "withgoogle": "avec Google",
@@ -6,5 +7,6 @@
     "fakeuser": "faux compte (dev)",
     "choosefakeuser": "Choisissez un faux compte (dev)",
     "close": "Fermer",
-    "save": "Enregistrer"
+    "save": "Enregistrer",
+    "policyrules": "Politique de Confidentialité"
 }

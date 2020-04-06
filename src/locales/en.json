@@ -1,4 +1,5 @@
 {
+    "home": "Home",
     "welcome": "Welcome",
     "identify": "You need to sign in",
     "withgoogle": "with Google",
@@ -6,5 +7,6 @@
     "fakeuser": "fake account (dev)",
     "choosefakeuser": "Select a fake User (dev)",
     "close": "Close",
-    "save": "Save"
+    "save": "Save",
+    "policyrules": "Policies Rules"
 }
