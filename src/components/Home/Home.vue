@@ -1,14 +1,20 @@
 <template>
     <div class="Home">
-        <div v-if="session === true">{{$t('welcome')}}</div>
+        <div v-if="session === true" class="main">
+<!--            <v-row align-content="center">{{$t('welcome')}}</v-row>-->
+            <NewGame/>
+        </div>
+
         <Auth v-else/>
     </div>
 </template>
 
 <script>
+    import './_Home.scss';
     import Auth from "../Auth/Auth";
+    import NewGame from "../NewGame/NewGame";
     export default {
-        components: {Auth},
+        components: {NewGame, Auth},
         data: (vm) => ({
             session: vm.getSession()
         }),
@@ -26,7 +32,9 @@
             setSession(session) {
                 this.session = session;
                 this.Storage.set('session', session);
-            }
+            },
+
+
         }
     };
 </script>

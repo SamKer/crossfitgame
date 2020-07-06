@@ -51,9 +51,9 @@
         >
           {{ new Date().getFullYear() }} — <strong>CrossFit Game</strong>
 
-          <router-link to="/" class="white--text">{{$t('home')}}</router-link>
-          <router-link to="/rgpc" class="white--text">{{$t('policyrules')}}</router-link>
-          <router-link to="/contact" class="white--text">{{$t('contact')}}</router-link>
+<!--          <router-link to="/" class="white&#45;&#45;text">{{$t('home')}}</router-link>-->
+<!--          <router-link to="/rgpc" class="white&#45;&#45;text">{{$t('policyrules')}}</router-link>-->
+<!--          <router-link to="/contact" class="white&#45;&#45;text">{{$t('contact')}}</router-link>-->
 
         </v-col>
       </v-row>
