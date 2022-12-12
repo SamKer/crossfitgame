@@ -10,7 +10,7 @@
   "dependencies": {
     "@mdi/font": "^5.0.45",
     "core-js": "^3.6.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "register-service-worker": "^1.6.2",
     "socket.io": "^2.3.0",
     "vue": "^2.6.11",
